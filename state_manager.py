@@ -97,5 +97,3 @@ class StateManager:
 
     def generate_state_pattern(self):
         return str(uuid.uuid4()) + '.tfstate'
-
-

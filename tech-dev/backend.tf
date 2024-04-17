@@ -2,7 +2,7 @@
 terraform {
   backend "s3" {
     bucket = "infra-dev.synaptic.services"
-    key    = "terraform-deployment-states/a08e0f4a-0581-4db1-b67f-a07a6e083046.tfstate"
+    key    = "terraform-deployment-states/277447f3-c4ba-4071-974e-a9d641277bc4.tfstate"
     region = "us-east-1"
   }
 }

@@ -1,13 +1,13 @@
-module "route53_record_common_es_cluster" {
+module "route53_record_people_es_cluster" {
   source = "git::git@github.com:vy-labs/vastu-elements.git//aws/route53/record"
 
   route53_zone_id = var.route53_zone_id
-  route53_domain  = var.common_es_route53_domain
+  route53_domain  = var.people_es_route53_domain
   record_type     = "A"
 
   is_alias_record                     = true
   alias_record_dns_name               = var.nlb_dns_name
-  alias_record_zone_id                = var.common_alb_zone_id
+  alias_record_zone_id                = var.people_alb_zone_id
   alias_record_evaluate_target_health = false
 
 }
@@ -47,15 +47,15 @@ module "route53_record_node2" {
 
 }
 
-module "route53_record_common_kibana" {
+module "route53_record_people_kibana" {
   source = "git::git@github.com:vy-labs/vastu-elements.git//aws/route53/record"
 
   route53_zone_id = var.route53_zone_id
-  route53_domain  = var.common_kibana_route53_domain
+  route53_domain  = var.people_kibana_route53_domain
   record_type     = "A"
 
   is_alias_record                     = true
   alias_record_dns_name               = var.nlb_dns_name
-  alias_record_zone_id                = var.common_alb_zone_id
+  alias_record_zone_id                = var.people_alb_zone_id
   alias_record_evaluate_target_health = false
 }

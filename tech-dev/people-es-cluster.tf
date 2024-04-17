@@ -1,18 +1,14 @@
-module "staging_common_es_cluster" {
+module "people_es_cluster" {
   source                          = "../elasticsearch"
   es_node_0_name                  = var.es_node_0_name
   es_node_1_name                  = var.es_node_1_name
   es_node_2_name                  = var.es_node_2_name
   route53_zone_id                 = "Z0599858291533W9UYM7N"
-  common_es_route53_domain        = "common-elasticsearch.dev.synaptic.services"
-  common_kibana_route53_domain    = "common-kibana.dev.synaptic.services"
   region                          = "us-east-1"
   availability_zone               = "us-east-1a"
   vpc_cidr_blocks                 = ["172.16.0.0/16"]
   instance_type                   = "m6g.large"
   main_vpc_id                     = "vpc-02b39b7ef9d391098"
-  common_alb_name                 = "synaptic-io-internal-shared-lb"
-  common_alb_zone_id              = "Z26RNL4JYFTOTI"
   target_group_protocol           = "TLS"
   target_group_target_type        = "instance"
   target_group_deregistration_delay             = "300"
@@ -22,12 +18,12 @@ module "staging_common_es_cluster" {
   target_group_health_check_interval            = 20
   target_group_health_check_matcher             = "200"
 
-  common_es_target_group_port                  = 9200
-  common_es_target_group_name                  = "common-es-cluster"
-  common_es_target_group_health_check_path     = "/_cluster/health"
-  common_kibana_target_group_port              = 5601
-  common_kibana_target_group_name              = "common-kibana"
-  common_kibana_target_group_health_check_path = "/api/status"
+  people_es_target_group_port                  = 9200
+  people_es_target_group_name                  = "people-es-cluster"
+  people_es_target_group_health_check_path     = "/_cluster/health"
+  people_kibana_target_group_port              = 5601
+  people_kibana_target_group_name              = "people-kibana"
+  people_kibana_target_group_health_check_path = "/api/status"
 
   es_node0_domain = "people-es-indexing-node0.dev.synaptic.services"
   es_node1_domain = "people-es-indexing-node1.dev.synaptic.services"
@@ -49,4 +45,5 @@ module "staging_common_es_cluster" {
   root_volume_size                  = 24
   delete_root_volume_on_termination = true
   ebs_volume_size                   = 400
+  people_es_cluster_profile_name    = "CommonESClusterInstanceProfile"
 }

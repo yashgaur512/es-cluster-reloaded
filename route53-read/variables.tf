@@ -29,12 +29,12 @@ variable "nlb_dns_name" {
   type    = string
 }
 
-variable "common_es_route53_domain" {
+variable "people_es_route53_domain" {
   default = "people-es-live.dev.synaptic.services"
   type    = string
 }
 
-variable "common_kibana_route53_domain" {
+variable "people_kibana_route53_domain" {
   default = "people-kibana-live.dev.synaptic.services"
   type    = string
 }
@@ -69,7 +69,7 @@ variable "route53_zone_id" {
   type = string
 }
 
-variable "common_alb_zone_id" {
+variable "people_alb_zone_id" {
   default = "Z26RNL4JYFTOTI"
   type = string
 }

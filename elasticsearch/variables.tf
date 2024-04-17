@@ -2,16 +2,12 @@ variable "es_node_0_name" {}
 variable "es_node_1_name" {}
 variable "es_node_2_name" {}
 variable "route53_zone_id" {}
-variable "common_es_route53_domain" {}
 variable "es_node0_domain" {}
 variable "es_node1_domain" {}
 variable "es_node2_domain" {}
-variable "common_kibana_route53_domain" {}
 variable "region" {}
 
 variable "main_vpc_id" {}
-variable "common_alb_name" {}
-variable "common_alb_zone_id" {}
 variable "target_group_protocol" {}
 variable "target_group_target_type" {}
 
@@ -22,12 +18,12 @@ variable "target_group_health_check_unhealthy_threshold" {}
 variable "target_group_health_check_interval" {}
 variable "target_group_health_check_matcher" {}
 
-variable "common_es_target_group_port" {}
-variable "common_es_target_group_name" {}
-variable "common_es_target_group_health_check_path" {}
-variable "common_kibana_target_group_port" {}
-variable "common_kibana_target_group_name" {}
-variable "common_kibana_target_group_health_check_path" {}
+variable "people_es_target_group_port" {}
+variable "people_es_target_group_name" {}
+variable "people_es_target_group_health_check_path" {}
+variable "people_kibana_target_group_port" {}
+variable "people_kibana_target_group_name" {}
+variable "people_kibana_target_group_health_check_path" {}
 
 variable "team" {}
 variable "sprinto_tag" {}
@@ -63,7 +59,4 @@ variable "es_node_2_user_data" {
   type    = string
 }
 
-variable "common_es_cluster_profile_name" {
-  default = "CommonESClusterInstanceProfile"
-  type = string
-}
+variable "people_es_cluster_profile_name" {}

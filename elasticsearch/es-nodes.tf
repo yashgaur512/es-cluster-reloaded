@@ -8,7 +8,7 @@ module "es_node_0" {
   instance_type                        = var.instance_type
   ebs_optimized                        = true
   disable_api_termination              = false
-  instance_profile                     = var.common_es_cluster_profile_name
+  instance_profile                     = var.people_es_cluster_profile_name
   instance_initiated_shutdown_behavior = "stop"
   associate_public_ip_address          = true
   assign_eip_address                   = false
@@ -29,14 +29,14 @@ module "es_node_0" {
   )
   volume_details = [
   {
-    "name"          = "${var.environment}-common-es-node-1-v0",
+    "name"          = "${var.environment}-people-es-node-1-vol0",
     ebs_volume_size = var.ebs_volume_size,
     ebs_iops        = 3000,
     ebs_volume_type = "gp3",
     ebs_device_name = "/dev/xvdf",
     tags = {
-      "Component"       = "common-es-ebs"
-      "Service"         = "common-es"
+      "Component"       = "people-es-ebs"
+      "Service"         = "people-es"
       "ServiceType"     = "EBS"
       "created_by"      = "terraform"
       "ServiceOwner"    = var.team
@@ -46,14 +46,14 @@ module "es_node_0" {
     }
   },
   {
-    "name"          = "${var.environment}-common-es-node-1-v1",
+    "name"          = "${var.environment}-people-es-node-1-vol1",
     ebs_volume_size = var.ebs_volume_size,
     ebs_iops        = 3000,
     ebs_volume_type = "gp3",
     ebs_device_name = "/dev/xvde",
     tags = {
-      "Component"       = "common-es-ebs"
-      "Service"         = "common-es"
+      "Component"       = "people-es-ebs"
+      "Service"         = "people-es"
       "ServiceType"     = "EBS"
       "created_by"      = "terraform"
       "ServiceOwner"    = var.team
@@ -64,8 +64,8 @@ module "es_node_0" {
   }
   ]
   instance_tags = {
-    "Component"       = "common-es-node-0"
-    "Service"         = "common-es"
+    "Component"       = "people-es-node-0"
+    "Service"         = "people-es"
     "ServiceType"     = "EC2"
     "created_by"      = "terraform"
     "ServiceOwner"    = var.team
@@ -76,8 +76,8 @@ module "es_node_0" {
 
   }
   volume_tags = {
-    "Component"       = "common-es-ebs"
-    "Service"         = "common-es"
+    "Component"       = "people-es-ebs"
+    "Service"         = "people-es"
     "ServiceType"     = "EBS"
     "created_by"      = "terraform"
     "ServiceOwner"    = var.team
@@ -86,8 +86,8 @@ module "es_node_0" {
     "Experimentation" = var.experimentation_tag
   }
   security_group_tags = {
-    "Component"       = "common-es-sg"
-    "Service"         = "common-es"
+    "Component"       = "people-es-sg"
+    "Service"         = "people-es"
     "created_by"      = "terraform"
     "ServiceOwner"    = var.team
     "sprinto"         = var.sprinto_tag
@@ -186,7 +186,7 @@ module "es_node_1" {
   instance_type                        = var.instance_type
   ebs_optimized                        = true
   disable_api_termination              = false
-  instance_profile                     = var.common_es_cluster_profile_name
+  instance_profile                     = var.people_es_cluster_profile_name
   instance_initiated_shutdown_behavior = "stop"
   associate_public_ip_address          = true
   assign_eip_address                   = false
@@ -210,14 +210,14 @@ module "es_node_1" {
   )
   volume_details = [
     {
-    "name"          = "${var.environment}-common-es-node-1-v0",
+    "name"          = "${var.environment}-people-es-node-1-vol0",
     ebs_volume_size = var.ebs_volume_size,
     ebs_iops        = 3000,
     ebs_volume_type = "gp3",
     ebs_device_name = "/dev/xvdg",
     tags = {
-      "Component"       = "common-es-ebs"
-      "Service"         = "common-es"
+      "Component"       = "people-es-ebs"
+      "Service"         = "people-es"
       "ServiceType"     = "EBS"
       "created_by"      = "terraform"
       "ServiceOwner"    = var.team
@@ -227,14 +227,14 @@ module "es_node_1" {
     }
   },
   {
-    "name"          = "${var.environment}-common-es-node-1-v1",
+    "name"          = "${var.environment}-people-es-node-1-vol1",
     ebs_volume_size = var.ebs_volume_size,
     ebs_iops        = 3000,
     ebs_volume_type = "gp3",
     ebs_device_name = "/dev/xvdh",
     tags = {
-      "Component"       = "common-es-ebs"
-      "Service"         = "common-es"
+      "Component"       = "people-es-ebs"
+      "Service"         = "people-es"
       "ServiceType"     = "EBS"
       "created_by"      = "terraform"
       "ServiceOwner"    = var.team
@@ -245,8 +245,8 @@ module "es_node_1" {
   }
   ]
   instance_tags = {
-    "Component"       = "common-es-node-1"
-    "Service"         = "common-es"
+    "Component"       = "people-es-node-1"
+    "Service"         = "people-es"
     "ServiceType"     = "EC2"
     "created_by"      = "terraform"
     "ServiceOwner"    = var.team
@@ -256,8 +256,8 @@ module "es_node_1" {
     "monitoring"      = "true"
   }
   volume_tags = {
-    "Component"       = "common-es-ebs"
-    "Service"         = "common-es"
+    "Component"       = "people-es-ebs"
+    "Service"         = "people-es"
     "ServiceType"     = "EBS"
     "created_by"      = "terraform"
     "ServiceOwner"    = var.team
@@ -266,8 +266,8 @@ module "es_node_1" {
     "Experimentation" = var.experimentation_tag
   }
   security_group_tags = {
-    "Component"       = "common-es-sg"
-    "Service"         = "common-es"
+    "Component"       = "people-es-sg"
+    "Service"         = "people-es"
     "created_by"      = "terraform"
     "ServiceOwner"    = var.team
     "sprinto"         = var.sprinto_tag
@@ -286,7 +286,7 @@ module "es_node_2" {
   instance_type                        = var.instance_type
   ebs_optimized                        = true
   disable_api_termination              = false
-  instance_profile                     = var.common_es_cluster_profile_name
+  instance_profile                     = var.people_es_cluster_profile_name
   instance_initiated_shutdown_behavior = "stop"
   associate_public_ip_address          = true
   assign_eip_address                   = false
@@ -311,14 +311,14 @@ module "es_node_2" {
   )
   volume_details = [
   {
-    "name"          = "${var.environment}-common-es-node-2-v0",
+    "name"          = "${var.environment}-people-es-node-2-vol0",
     ebs_volume_size = var.ebs_volume_size,
     ebs_iops        = 3000,
     ebs_volume_type = "gp3",
     ebs_device_name = "/dev/xvdi",
     tags = {
-      "Component"       = "common-es-ebs"
-      "Service"         = "common-es"
+      "Component"       = "people-es-ebs"
+      "Service"         = "people-es"
       "ServiceType"     = "EBS"
       "created_by"      = "terraform"
       "ServiceOwner"    = var.team
@@ -328,14 +328,14 @@ module "es_node_2" {
     }
   },
   {
-    "name"          = "${var.environment}-common-es-node-2-v1",
+    "name"          = "${var.environment}-people-es-node-2-vol1",
     ebs_volume_size = var.ebs_volume_size,
     ebs_iops        = 3000,
     ebs_volume_type = "gp3",
     ebs_device_name = "/dev/xvdj",
     tags = {
-      "Component"       = "common-es-ebs"
-      "Service"         = "common-es"
+      "Component"       = "people-es-ebs"
+      "Service"         = "people-es"
       "ServiceType"     = "EBS"
       "created_by"      = "terraform"
       "ServiceOwner"    = var.team
@@ -346,8 +346,8 @@ module "es_node_2" {
   }
   ]
   instance_tags = {
-    "Component"       = "common-es-node-2"
-    "Service"         = "common-es"
+    "Component"       = "people-es-node-2"
+    "Service"         = "people-es"
     "ServiceType"     = "EC2"
     "created_by"      = "terraform"
     "ServiceOwner"    = var.team
@@ -357,8 +357,8 @@ module "es_node_2" {
     "monitoring"      = "true"
   }
   volume_tags = {
-    "Component"       = "common-es-ebs"
-    "Service"         = "common-es"
+    "Component"       = "people-es-ebs"
+    "Service"         = "people-es"
     "ServiceType"     = "EBS"
     "created_by"      = "terraform"
     "ServiceOwner"    = var.team
@@ -367,8 +367,8 @@ module "es_node_2" {
     "Experimentation" = var.experimentation_tag
   }
   security_group_tags = {
-    "Component"       = "common-es-sg"
-    "Service"         = "common-es"
+    "Component"       = "people-es-sg"
+    "Service"         = "people-es"
     "created_by"      = "terraform"
     "ServiceOwner"    = var.team
     "sprinto"         = var.sprinto_tag

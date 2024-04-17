@@ -104,7 +104,7 @@ def create_es_infra():
             print(stderr)     
 
 def update_route53_indexing():
-    file_path = "/Users/yash.gaur/Synaptic Workspace/cluster_rotator/route53-indexing"
+    file_path = "/Users/yash.gaur/synaptic_workspace/cluster_rotator/route53-indexing"
     os.environ['AWS_ACCESS_KEY_ID'] = AWS_ACCESS_KEY_ID
     os.environ['AWS_SECRET_ACCESS_KEY'] = AWS_SECRET_ACCESS_KEY
     os.environ['AWS_SESSION_TOKEN'] = AWS_SESSION_TOKEN
@@ -134,7 +134,7 @@ def update_route53_indexing():
         return_code, stdout, stderr = tf.destroy(force=IsNotFlagged, _auto_approve=IsFlagged)
 
 def update_route53_read():
-    file_path = "/Users/yash.gaur/Synaptic Workspace/cluster_rotator/route53-read"
+    file_path = "/Users/yash.gaur/synaptic_workspace/cluster_rotator/route53-read"
     os.environ['AWS_ACCESS_KEY_ID'] = AWS_ACCESS_KEY_ID
     os.environ['AWS_SECRET_ACCESS_KEY'] = AWS_SECRET_ACCESS_KEY
     os.environ['AWS_SESSION_TOKEN'] = AWS_SESSION_TOKEN
@@ -164,7 +164,7 @@ def update_route53_read():
         return_code, stdout, stderr = tf.destroy(force=IsNotFlagged, _auto_approve=IsFlagged)
 
 def destroy():
-    file_path = "/Users/yash.gaur/Synaptic Workspace/cluster_rotator/tech-dev"
+    file_path = "/Users/yash.gaur/synaptic_workspace/cluster_rotator/tech-dev"
     os.environ['AWS_ACCESS_KEY_ID'] = AWS_ACCESS_KEY_ID
     os.environ['AWS_SECRET_ACCESS_KEY'] = AWS_SECRET_ACCESS_KEY
     os.environ['AWS_SESSION_TOKEN'] = AWS_SESSION_TOKEN
@@ -212,13 +212,15 @@ def destroy():
         print(res)      
 
 
-# create_es_infra() 
+# create_es_infra()
 
 # update_route53_indexing()
 
 # update_route53_read()
 
 # destroy()
+
+# write_backend_file('/Users/yash.gaur/synaptic_workspace/cluster_rotator/tech-dev', 'dummy.tfstate', '277447f3-c4ba-4071-974e-a9d641277bc4.tfstate')
 
 
 # new = state_manager.get_new_state()
