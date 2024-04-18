@@ -100,8 +100,10 @@ def create_es_infra():
                 return_code, stdout, stderr = tf.destroy(force=IsNotFlagged, _auto_approve=IsFlagged)
             print(res)
         else:
-            print("Terraform Apply failed. See error message:")
-            print(stderr)     
+            print("Terraform Apply failed. Initiating Destroy! See error message:")
+            tf = Terraform(working_dir=file_path)
+            tf.init(reconfigure=IsNotFlagged)
+            return_code, stdout, stderr = tf.destroy(force=IsNotFlagged, _auto_approve=IsFlagged)     
 
 def update_route53_indexing():
     file_path = "/Users/yash.gaur/synaptic_workspace/cluster_rotator/route53-indexing"
