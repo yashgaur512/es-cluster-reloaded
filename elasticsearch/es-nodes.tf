@@ -25,7 +25,7 @@ module "es_node_0" {
   availability_zone                    = var.availability_zone
   user_data = templatefile(
     "${path.module}/scripts/user-data-node-0.tpl",
-    {}
+    { environment = var.environment }
   )
   volume_details = [
   {
@@ -205,6 +205,7 @@ module "es_node_1" {
   user_data = templatefile(
     "${path.module}/scripts/user-data-node-1.tpl",
     {
+      environment = var.environment
       es_node_0_ip = module.es_node_0.instance.private_ip
     }
   )
@@ -305,6 +306,7 @@ module "es_node_2" {
   user_data = templatefile(
     "${path.module}/scripts/user-data-node-2.tpl",
     {
+      environment = var.environment
       es_node_0_ip = module.es_node_0.instance.private_ip
       es_node_1_ip = module.es_node_1.instance.private_ip
     }
